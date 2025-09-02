@@ -19,6 +19,7 @@ class QuestionForm extends Component
         'question.code_snippet' => 'nullable|string',
         'question.answer_explanation' => 'nullable|string',
         'question.more_info_link' => 'nullable|url',
+        'question.timer' => 'required|numeric',
         'options' => 'required|array',
         'options.*.text' => 'required|string',
     ];

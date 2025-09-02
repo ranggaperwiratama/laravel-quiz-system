@@ -21,7 +21,8 @@ class QuizForm extends Component
     protected $rules = [
         'quiz.title' => 'required|string',
         'quiz.slug' => 'string',
-        'quiz.description' => 'nullable|string',
+        'quiz.description' => 'required|string',
+        'quiz.finish_message' => 'nullable|string',
         'quiz.published' => 'boolean',
         'quiz.public' => 'boolean',
         'quiz.published' => 'boolean',

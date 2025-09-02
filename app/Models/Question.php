@@ -16,6 +16,7 @@ class Question extends Model
         'code_snippet',
         'answer_explanation',
         'more_info_link',
+        'timer'
     ];
 
     public function options(): HasMany

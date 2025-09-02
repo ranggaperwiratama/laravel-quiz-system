@@ -24,21 +24,21 @@
                         <div class="mt-4">
                             <x-input-label for="options" value="Question options" />
                             @foreach ($options as $index => $option)
-                                <div class="flex mt-2">
-                                    <x-text-input type="text" wire:model.defer="options.{{ $index }}.text"
-                                        class="w-full" name="options_{{ $index }}"
-                                        id="options_{{ $index }}" autocomplete="off" />
+                            <div class="flex mt-2">
+                                <x-text-input type="text" wire:model.defer="options.{{ $index }}.text"
+                                    class="w-full" name="options_{{ $index }}"
+                                    id="options_{{ $index }}" autocomplete="off" />
 
-                                    <div class="flex items-center">
-                                        <input type="checkbox" class="mr-1 ml-4"
-                                            wire:model.defer="options.{{ $index }}.correct"> Correct
-                                        <button wire:click="removeOption({{ $index }})" type="button"
-                                            class="ml-4 rounded-md border border-transparent bg-red-200 px-4 py-2 text-xs uppercase text-red-500 hover:bg-red-300 hover:text-red-700">
-                                            Delete
-                                        </button>
-                                    </div>
+                                <div class="flex items-center">
+                                    <input type="checkbox" class="mr-1 ml-4"
+                                        wire:model.defer="options.{{ $index }}.correct"> Correct
+                                    <button wire:click="removeOption({{ $index }})" type="button"
+                                        class="ml-4 rounded-md border border-transparent bg-red-200 px-4 py-2 text-xs uppercase text-red-500 hover:bg-red-300 hover:text-red-700">
+                                        Delete
+                                    </button>
                                 </div>
-                                <x-input-error :messages="$errors->get('options.' . $index . '.text')" class="mt-2" />
+                            </div>
+                            <x-input-error :messages="$errors->get('options.' . $index . '.text')" class="mt-2" />
                             @endforeach
 
                             <x-input-error :messages="$errors->get('options')" class="mt-2" />
@@ -46,6 +46,13 @@
                             <x-primary-button wire:click="addOption" type="button" class="mt-2">
                                 Add
                             </x-primary-button>
+                        </div>
+
+                        <div class="mt-4">
+                            <x-input-label for="timer" value="Timer (sec)" />
+                            <x-text-input-number wire:model.defer="question.timer" id="timer"
+                                class="block mt-1 w-full" name="timer" />
+                            <x-input-error :messages="$errors->get('question.timer')" class="mt-2" />
                         </div>
 
                         <div class="mt-4">
@@ -61,6 +68,7 @@
                                 class="block mt-1 w-full" type="text" name="answer_explanation" />
                             <x-input-error :messages="$errors->get('question.answer_explanation')" class="mt-2" />
                         </div>
+
 
                         <div class="mt-4">
                             <x-input-label for="more_info_link" value="More info link" />
