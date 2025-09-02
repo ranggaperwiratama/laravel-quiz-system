@@ -145,7 +145,9 @@
             <div class="p-6 text-gray-900">
                 <div class="mb-4 min-w-full overflow-hidden overflow-x-auto align-middle sm:rounded-md">
                     <h6 class="text-xl font-bold">Finish Message</h6>
-                    
+                    <div class="mt-4 table w-full table-view">
+                        {{$result->test->quiz->finish_message}}
+                    </div>
                 </div>
             </div>
         </div>

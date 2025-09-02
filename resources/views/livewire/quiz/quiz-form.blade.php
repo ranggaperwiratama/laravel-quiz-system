@@ -37,17 +37,8 @@
 
                         <div class="mt-4">
                             <x-input-label for="finish_message" value="Finish message" />
-                            <div wire:ignore>
-                                <input
-                                    id="finish_message"
-                                    type="hidden"
-                                    wire:model="quiz.finish_message"
-                                    value="{{ $quiz->finish_message ?? '' }}">
-                                <trix-editor
-                                    input="finish_message"
-                                    class="min-h-[200px] p-4 border border-gray-300 rounded-lg"
-                                    placeholder="Write your finish message here...">{!! $quiz->finish_message ?? '' !!}</trix-editor>
-                            </div>
+                            <x-textarea wire:model="quiz.finish_message" id="finish_message" class="block mt-1 w-full"
+                                type="text" name="finish_message" />
                             <x-input-error :messages="$errors->get('quiz.finish_message')" class="mt-2" />
                         </div>
 

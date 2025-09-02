@@ -14,6 +14,7 @@ class ResultController extends Controller
 
         $results = Answer::where('test_id', $test->id)
             ->with('question.options')
+            ->with('test.quiz')
             ->get();
 
         if (!$test->quiz->public) {
